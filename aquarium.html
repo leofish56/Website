@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Léo Le Gall | Web Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+
+
+<body>     
+    <div class="top-box">
+
+        <img src="profile.JPG" alt="Profile picture" class="profile-pic">
+     
+        <h1>Léo <br>Le Gall</h1>
+        <h2>PhD student</h2>
+    </div>
+
+     <!-- Fixed Contact Sidebar -->
+    <div class="contact-box">
+        <h2>Affiliation</h2>
+        <p>Thünen Institute für Ostseefischerei</p>
+        <p>Universität Hamburg
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:leo.legall@thuenen.de">leo.legall@thuenen.de</a></p>
+        <p>Phone: +49 381 66099 171</p>
+        <p>Github:<a href="https://github.com/leofish56">leofish56</a> </p>
+        <p>LinkedIn: <a href="www.linkedin.com/in/léo-le-gall-fish">léo-le-gall-fish</a></p>
+    </div>
+    
+    <!-- Right sidebar: Navigation -->
+    <div class="nav-images">
+        <a href="index.html">
+            <div class="nav-item">
+               <img src="home.gif" alt="Home">
+               <span class="nav-label">Home</span>
+           </div>
+        </a>
+        <a href="projects.html">
+           <div class="nav-item">
+                <img src="packages.gif" alt="Packages">
+                <span class="nav-label">Packages</span>
+            </div>
+     </a>
+        <a href="publications.html">
+            <div class="nav-item">
+                <img src="publication.gif" alt="Publications">
+                <span class="nav-label">Publications</span>
+            </div>
+        </a>
+        <a href="cv.html">
+            <div class="nav-item">
+                <img src="cv.gif" alt="CV">
+                <span class="nav-label">CV</span>
+            </div>
+        </a>
+        <a href="Aquarium.html">
+           <div class="nav-item">
+               <img src="aquarium.gif" alt="Aquarium">
+               <span class="nav-label">Aquarium</span>
+            </div>
+        </a>
+    </div>
+
+    <div class="main-content">
+
+        <div class="fish-container">
+          <img src="fish1.gif" class="fish1">
+          <img src="fish1.gif" class="fish2">
+          <img src="fish1.gif" class="fish3">
+          <img src="fish1.gif" class="fish4">
+          <img src="fish1.gif" class="fish5">
+          <img src="fish1.gif" class="fish6">
+          <img src="fish1.gif" class="fish7">
+          <img src="fish1.gif" class="fish8">
+          <img src="fish1.gif" class="fish9">
+          <img src="fish1.gif" class="fish10">
+          <img src="fish2.png" class="smallFish1">
+          <img src="fish2.png" class="smallFish2">
+          <div class="aquarium-message">Please don't touch the fish</div>
+        </div>
+        
+    
+
+    </div>
+    <script>
+document.querySelectorAll(".fish-container img").forEach(fish => {
+
+    fish.addEventListener("click", () => {
+
+        // Get fish current position
+        const rect = fish.getBoundingClientRect();
+        const containerRect = fish.parentElement.getBoundingClientRect();
+
+        // Convert screen position → container position
+        const left = rect.left - containerRect.left;
+        const top = rect.top - containerRect.top;
+
+        // Stop animation
+        fish.style.animation = "none";
+
+        // Lock fish exactly where it is
+        fish.style.left = left + "px";
+        fish.style.top = top + "px";
+
+        // Add death animation
+        fish.classList.add("dead");
+
+        // Remove fish after animation
+        setTimeout(() => fish.remove(), 2000);
+
+    });
+
+});
+</script>
+
+</body>
+

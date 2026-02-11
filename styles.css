@@ -1,0 +1,267 @@
+body {
+    margin: 0;
+    font-family: 'Source Code Pro', monospace;
+    background-color: black;
+    color: #2E2E2E;
+
+    background-image: url("background.gif");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.top-box {
+    position: fixed;
+    margin: 20px;
+    width: 350px;
+    background-color: #B22222;
+    color: white;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.profile-pic {
+    width: 120px;
+    height: 150px;
+    object-fit: cover;
+    float: left;
+    margin-right: 20px;
+}
+
+h1 { margin: 0; }
+h2 { margin: 5px 0 0 0; }
+
+.top-box::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.about h2 {
+    margin-top: 0;
+    border-bottom: 2px solid #B22222;
+    padding-bottom: 5px;
+}
+
+.about p {
+    line-height: 1.6;
+}
+
+.contact-box {
+    position: fixed;
+    top: 250px;
+    left: 20px;
+    width: 350px;
+    background-color: #B22222;
+    color: white;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* ✅ MAIN CONTENT (modified only to anchor fish) */
+.main-content {
+    margin-left: 400px;
+    margin-right: 300px;
+    padding: 20px;
+    max-width: 1000px;
+    min-width: 200px;
+
+    position: relative;   /* anchors fish container */
+    overflow: hidden;     /* prevents fish leaving box */
+}
+
+.section {
+    background-color: white;
+    margin-bottom: 20px;
+    padding: 25px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.section h2 {
+    margin-top: 0;
+    border-bottom: 2px solid #B22222;
+    padding-bottom: 5px;
+}
+
+/* Navigation */
+.nav-images {
+    position: absolute;
+    top: 20px;
+    right: 0px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.nav-images a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-item img {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+
+.nav-item img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.nav-label {
+    margin-top: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* Anchor aquarium to same width as main content */
+.fish-container {
+    background-image: url("underwater.png");
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: cover;
+    position: fixed;
+    top: 20px;
+    bottom: 20px;
+    left: 400px;
+    right: 300px;
+    overflow: hidden;
+    pointer-events: none;
+    border: 3px solid blanchedalmond;
+    box-shadow: 0 0 15px rgba(255,235,205,0.6);
+}
+
+/* Fish images */
+.fish-container img {
+    height: 50px;
+    position: absolute;
+    pointer-events: auto; /* allows clicking fish only */
+    cursor: pointer;
+}
+
+/* =======================
+   Fish Container Styling
+   ======================= */
+.fish-container img {
+    height: 100px;
+    position: absolute;
+    pointer-events: auto;  /* clickable for death animation */
+}
+
+/* =======================
+   Fish Animations
+   ======================= */
+
+/* Off-screen Left → Right Fish */
+.fish1  { top: 10%;  left: -50%; transform: translateY(-50%) scale(1); animation: fishAnimation 12s linear infinite 0s; }
+.fish2  { top: 25%;  left: -55%; transform: translateY(-50%) scale(0.8); animation: fishAnimation 14s linear infinite 3s; }
+.fish4  { top: 55%;  left: -58%; transform: translateY(-50%) scale(1.1); animation: fishAnimation 16s linear infinite 5s; }
+
+/* Middle-starting Left → Right Fish */
+.fish3  { top: 40%;  left: 40%; transform: translateY(-50%) scale(1.5); animation: fishMiddleStart 10s linear infinite 0s; }
+.fish5  { top: 70%;  left: 30%; transform: translateY(-50%) scale(0.6); animation: fishMiddleStart 13s linear infinite 0s; }
+
+/* Off-screen Right → Left Fish (mirrored) */
+.fish6  { top: 85%;  left: 110%; transform: scaleX(-1) translateY(-50%) scale(1); animation: fishAnimationReverse 14s linear infinite 2s; }
+.fish8  { top: 50%;  left: 110%; transform: scaleX(-1) translateY(-50%) scale(1.1); animation: fishAnimationReverse 12s linear infinite 1s; }
+.fish10 { top: 35%;  left: 110%; transform: scaleX(-1) translateY(-50%) scale(1.4); animation: fishAnimationReverse2 14s linear infinite 2s; }
+
+/* Middle-starting Right → Left Fish (mirrored) */
+.fish7  { top: 20%;  left: 60%; transform: scaleX(-1) translateY(-50%) scale(0.5); animation: fishReverseMiddleStart 15s linear infinite 0s; }
+.fish9  { top: 65%;  left: 50%; transform: scaleX(-1) translateY(-50%) scale(0.9); animation: fishReverseMiddleStart2 16s linear infinite 0s; }
+
+/* Small Fish for variety */
+.smallFish1 { top: 15%;  left: -55%; transform: scale(0.3); animation: fishAnimation 15s linear infinite 2s; }
+.smallFish2 { top: 60%;  left: 45%; transform: scale(0.2); animation: fishMiddleStart 17s linear infinite 0s; }
+
+/* =======================
+   Dead Fish State
+   ======================= */
+.dead {
+    animation: deadFish 2s forwards !important;
+    transform-origin: center;
+}
+
+/* =======================
+   Keyframes
+   ======================= */
+
+/* Standard left → right fish */
+@keyframes fishAnimation {
+    0%   { left: -50%; }
+    100% { left: 110%; }
+}
+
+/* Off-screen left → right, diagonal */
+@keyframes fishAnimation2 {
+    0%   { left: -50%; top: 110%; } 
+    100% { left: 110%; top: -30%; }
+}
+
+/* Middle-starting left → right */
+@keyframes fishMiddleStart {
+    0%   { left: 40%; }
+    100% { left: 110%; }
+}
+
+/* Standard right → left fish (mirrored) */
+@keyframes fishAnimationReverse {
+    0%   { left: 110%; }
+    100% { left: -50%; }
+}
+
+/* Right → left, diagonal */
+@keyframes fishAnimationReverse2 {
+    0%   { left: 110%; top: -30%; } 
+    100% { left: -50%; top: 110%; }
+}
+
+/* Middle-starting right → left (mirrored) */
+@keyframes fishReverseMiddleStart {
+    0%   { left: 60%; }
+    100% { left: -50%; }
+}
+
+@keyframes fishReverseMiddleStart2 {
+    0%   { left: 50%; }
+    100% { left: -50%; }
+}
+
+/* Dead fish animation */
+@keyframes deadFish {
+    0% { transform: rotate(0deg); opacity: 1; }
+    100% { transform: rotate(180deg); opacity: 0.6; }
+}
+
+.aquarium-message {
+    position: fixed;
+    bottom: 30px;                 /* distance from top of aquarium */
+    right: 310px;                 /* center horizontally */
+    color: white;
+    padding: 8px 8px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    text-align: center;
+    z-index: 1000;
+}
