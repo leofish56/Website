@@ -11,6 +11,19 @@ body {
     background-attachment: fixed;
 }
 
+p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: #f5f5f5;
+}
+
+h4 {
+    margin-top: 10px;   /* space above each paragraph */
+    margin-bottom: 10px; /* space below each paragraph */
+    line-height: 1.5;   /* optional: increases spacing between lines inside a paragraph */
+}
+
 .top-box {
     position: fixed;
     margin: 20px;
@@ -319,4 +332,45 @@ h2 { margin: 5px 0 0 0; }
     border-width: 8px;
     border-style: solid;
     border-color: transparent white transparent transparent;
+}
+
+
+.section {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: black; /* semi-transparent for readability */
+    border-radius: 10px;
+}
+
+.section h2 {
+    border-bottom: 2px solid #cacaca;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #f5f5f5;
+}
+
+.education-item, .research-item {
+    margin-bottom: 25px;
+}
+
+.education-item h3, .research-item h3 {
+    color: #B22222;
+    margin-bottom: 5px;
+}
+
+.date {
+    color: #f7f5f5;
+    margin-bottom: 5px;
+}
+
+.location {
+    color: #b4b3b3;
+    margin-bottom: 5px;
+}
+
+.description {
+    color: #717171;
+    margin-bottom: 15px;
+    line-height: 1.6;
 }
