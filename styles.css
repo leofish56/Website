@@ -256,12 +256,67 @@ h2 { margin: 5px 0 0 0; }
 
 .aquarium-message {
     position: fixed;
-    bottom: 30px;                 /* distance from top of aquarium */
-    right: 310px;                 /* center horizontally */
+    bottom: 30px;
+    right: 310px;
     color: white;
     padding: 8px 8px;
     border-radius: 6px;
     font-size: 0.8rem;
     text-align: center;
     z-index: 1000;
+}
+
+/* ===== Map Styling ===== */
+
+.map-wrapper {
+    margin-top: 0px;
+    padding: 5px;
+    background: black;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    
+    position: relative;
+    display: inline-block;
+}
+
+.map-marker {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border: 3px solid white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%); 
+}
+
+/* Make image responsive */
+.map-wrapper img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ===== Info Panel ===== */
+
+#map-popup {
+    position: absolute;
+    color: black;
+    border: 2px solid #B22222;
+    background: white;
+    padding: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    display: none;
+    transform: translate(-50%, -100%); /* center horizontally, place above marker */
+    pointer-events: none;
+    z-index: 10;
+    font-size: 0.5rem;
+}
+
+/* small arrow */
+#map-popup::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent white transparent transparent;
 }

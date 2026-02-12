@@ -10,6 +10,23 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
+<script>
+function showPopup(x, y, title, period) {
+    const popup = document.getElementById('map-popup');
+    popup.style.left = x + '%';
+    popup.style.top = y + '%'; // use exact percentage
+    popup.innerHTML = `<strong>${title}</strong><br>${period}`;
+    popup.style.display = 'block';
+
+    // Hide popup when clicking anywhere else
+    document.addEventListener('click', function hide(event) {
+        if (!event.target.classList.contains('map-marker')) {
+            popup.style.display = 'none';
+            document.removeEventListener('click', hide);
+        }
+    });
+}
+</script>
 
 
 <body>     
@@ -25,12 +42,12 @@
     <div class="contact-box">
         <h2>Affiliation</h2>
         <p>Thünen Institute für Ostseefischerei</p>
-        <p>Universität Hamburg
+        <p>Universität Hamburg</p>
         <h2>Contact</h2>
         <p>Email: <a href="mailto:leo.legall@thuenen.de">leo.legall@thuenen.de</a></p>
         <p>Phone: +49 381 66099 171</p>
         <p>Github:<a href="https://github.com/leofish56">leofish56</a> </p>
-        <p>LinkedIn: <a href="www.linkedin.com/in/léo-le-gall-fish">léo-le-gall-fish</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/léo-le-gall-fish">léo-le-gall-fish</a></p>
     </div>
     
     <!-- Right sidebar: Navigation -->
@@ -59,7 +76,7 @@
                 <span class="nav-label">CV</span>
             </div>
         </a>
-        <a href="Aquarium.html">
+        <a href="aquarium.html">
            <div class="nav-item">
                <img src="aquarium.gif" alt="Aquarium">
                <span class="nav-label">Aquarium</span>
@@ -68,7 +85,34 @@
     </div>
 
     <div class="main-content">
-        
+    <div class="map-wrapper">
+
+    <img src="map.png" alt="CV Map">
+
+    <!-- Floating popup -->
+    <div id="map-popup"></div>
+        <div class="map-marker" style="left:20%; top:58%;"
+        onclick="showPopup(10, 55, 'Technical degree','IUT Brest<br> Brest<br>2019-2021<br>Environmental engineering');"></div>
+        <div class="map-marker" style="left:22%; top:61%;"
+        onclick="showPopup(12, 58, 'Bachelor','Université de Bretagne Sud<br>Vannes<br>2021-2022<br>Environmental science & Biology');"></div>
+        <div class="map-marker" style="left:5%; top:95%;"
+        onclick="showPopup(15, 95, 'Bachelor\'s thesis','MARE Madeira<br>Funchal<br>2022');"></div>
+        <div class="map-marker" style="left:52%; top:75%;"
+        onclick="showPopup(40, 85, 'IMBRsea Semester 1','Università Politecnica delle Marche<br>Ancona<br>2022<br>Marine biology');"></div>
+        <div class="map-marker" style="left:5.5%; top:84.5%;"
+        onclick="showPopup(20, 85, 'IMBRsea Semester 2','Universidade do Algarve<br>Faro<br>2023<br>Fisheries science');"></div>
+        <div class="map-marker" style="left:60%; top:40%;"
+        onclick="showPopup(70, 35, 'Professional Practice','Thünen Institute (OF)<br>Baltic Sea<br>2023');"></div>
+        <div class="map-marker" style="left:16.5%; top:44.5%;"
+        onclick="showPopup(15, 40, 'IMBRsea Semester 3','Ollscoil Theicneolaíoch an Atlantaigh<br>Galway<br>2023<br>Fisheries science');"></div>
+        <div class="map-marker" style="left:50%; top:48%;"
+        onclick="showPopup(40, 45, 'PhD Student','Thünen Institute (OF)<br>Rostock<br>2025-2027<br>Fisheries science');"></div>
+
+
+    </div>
+
+    
+    </div>
+
     </div>
 </body>
-
